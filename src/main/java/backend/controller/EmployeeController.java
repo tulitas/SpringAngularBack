@@ -42,7 +42,6 @@ public class EmployeeController {
                                                     @RequestBody Employee employeeDetails) throws ResourcesNotFoundException {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourcesNotFoundException("Employee not found for this id :: " + employeeId));
-
         employee.setEmailId(employeeDetails.getEmailId());
         employee.setLastName(employeeDetails.getLastName());
         employee.setFirstName(employeeDetails.getFirstName());
