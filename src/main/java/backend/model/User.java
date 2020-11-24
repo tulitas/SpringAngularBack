@@ -23,7 +23,6 @@ public class User implements java.io.Serializable {
     private String birthDate;
 
     public User() {
-
     }
 
     public long getId() {
@@ -68,7 +67,7 @@ public class User implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +

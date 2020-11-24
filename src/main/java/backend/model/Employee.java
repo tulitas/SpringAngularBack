@@ -20,7 +20,6 @@ public class Employee implements java.io.Serializable{
     private String emailId;
 
     public Employee() {
-
     }
 
     public long getId() {
