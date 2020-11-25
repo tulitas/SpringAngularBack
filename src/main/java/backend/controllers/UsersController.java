@@ -1,4 +1,4 @@
-package backend.controller;
+package backend.controllers;
 
 
 import backend.exception.ResourcesNotFoundException;
@@ -33,7 +33,7 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public User sreateUser( @RequestBody User user) {
+    public User createUser( @RequestBody User user) {
         return usersRepository.save(user);
     }
 
