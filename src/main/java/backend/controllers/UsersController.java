@@ -4,6 +4,7 @@ import backend.exception.ResourcesNotFoundException;
 import backend.model.Roles;
 import backend.model.User;
 import backend.repository.UsersRepository;
+import backend.utils.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,8 +35,9 @@ public class UsersController {
 
     @PostMapping("/users")
     public User createUser( @RequestBody User user) {
+        DateTime dateTime = new DateTime();
         user.setRole(String.valueOf(Roles.USER));
-        System.out.println(user);
+        user.setCreateDate(dateTime.getFormatedTime());
         return usersRepository.save(user);
     }
 

@@ -25,7 +25,18 @@ public class User implements java.io.Serializable {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "createDate")
+    private String createDate;
+
     public User() {
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public String getRole() {
@@ -86,6 +97,7 @@ public class User implements java.io.Serializable {
                 ", email='" + email + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 ", role='" + role + '\'' +
+                ", createDate='" + createDate + '\'' +
                 '}';
     }
 }
