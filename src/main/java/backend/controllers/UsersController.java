@@ -1,6 +1,7 @@
-package backend.controller;
+package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
+import backend.model.Roles;
 import backend.model.User;
 import backend.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ public class UsersController {
 
     @PostMapping("/users")
     public User createUser( @RequestBody User user) {
+        user.setRole(String.valueOf(Roles.USER));
+        System.out.println(user);
         return usersRepository.save(user);
     }
 

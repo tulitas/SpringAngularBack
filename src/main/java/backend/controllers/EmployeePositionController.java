@@ -1,4 +1,4 @@
-package backend.controller;
+package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
 import backend.model.EmployeePosition;

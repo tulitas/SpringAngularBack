@@ -22,7 +22,19 @@ public class User implements java.io.Serializable {
     @Column(name = "birthdate")
     private String birthDate;
 
+    @Column(name = "role")
+    private String role;
+
     public User() {
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+
+        this.role = role;
     }
 
     public long getId() {
@@ -73,6 +85,7 @@ public class User implements java.io.Serializable {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", birthDate='" + birthDate + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
