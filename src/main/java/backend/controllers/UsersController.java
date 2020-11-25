@@ -38,6 +38,7 @@ public class UsersController {
         DateTime dateTime = new DateTime();
         user.setRole(String.valueOf(Roles.USER));
         user.setCreateDate(dateTime.getFormatedTime());
+        System.out.println(dateTime.getFormatedTime() + user);
         return usersRepository.save(user);
     }
 

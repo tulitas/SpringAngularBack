@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 public class DateTime {
 
-    LocalDateTime time = LocalDateTime.now();
-    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    private LocalDateTime time = LocalDateTime.now();
+    private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private String formatedTime = time.format(timeFormatter);
 
     public String getFormatedTime() {
