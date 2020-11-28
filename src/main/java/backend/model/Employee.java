@@ -19,8 +19,19 @@ public class Employee implements java.io.Serializable{
     @Column(name = "email")
     private String emailId;
 
+    @Column(name = "positionId")
+    private long positionId;
+
     public Employee() {
 
+    }
+
+    public long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(long positionId) {
+        this.positionId = positionId;
     }
 
     public long getId() {
@@ -55,4 +66,14 @@ public class Employee implements java.io.Serializable{
         this.emailId = emailId;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", positionId=" + positionId +
+                '}';
+    }
 }
