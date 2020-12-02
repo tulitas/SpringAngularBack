@@ -20,6 +20,7 @@ public class EmployeePositionController {
 
     @GetMapping("/positions")
     public List<EmployeePosition> getAllEmployeePositions() {
+        System.out.println("position1");
         return (List<EmployeePosition>) employeePositionRepository.findAll();
     }
 
@@ -40,8 +41,6 @@ public class EmployeePositionController {
                                                        @RequestBody EmployeePosition positionDetails) throws ResourcesNotFoundException {
         EmployeePosition employeePosition = employeePositionRepository.findById(positionId)
                 .orElseThrow(()-> new ResourcesNotFoundException("User not found for this id :: " + positionId));
-
-        employeePosition.setEmployeeId(positionDetails.getEmployeeId());
         employeePosition.setPosition(positionDetails.getPosition());
         final EmployeePosition updatePosition = employeePositionRepository.save(employeePosition);
         return ResponseEntity.ok(updatePosition);
