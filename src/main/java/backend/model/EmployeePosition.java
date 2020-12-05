@@ -1,10 +1,11 @@
 package backend.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "employeePositions")
-public class EmployeePosition implements java.io.Serializable{
+public class EmployeePosition implements java.io.Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,7 +14,22 @@ public class EmployeePosition implements java.io.Serializable{
     @Column(name = "position")
     private String position;
 
+    @OneToMany(targetEntity = Employee.class,
+            mappedBy = "id",
+            orphanRemoval = false,
+            fetch = FetchType.LAZY)
+    private Set<Employee> employees;
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
     public long getId() {
+
         return id;
     }
 
