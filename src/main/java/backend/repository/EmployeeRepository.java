@@ -1,5 +1,6 @@
 package backend.repository;
 
+import backend.dto.EmployeeAndPositionDto;
 import backend.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +12,7 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long>, JpaRepository<Employee, Long> {
 
-@Query ("SELECT new backend.dto.EmployeePositionDto(d.position, e.firstname, e.lastname, e.email) from Employee d left join d.employeePosition e");
+@Query ("SELECT new backend.dto.EmployeePositionDto(d.position, e.firstname, e.lastname, e.email) from Employee d left join d.employeePosition e", nativeQuery = true);
+List<EmployeeAndPositionDto> fetch
 
 }
