@@ -29,19 +29,19 @@ public class Employee implements Serializable {
     private String lastName;
 
     @Column(name = "email")
-    private String emailId;
+    private String email;
 
-    @Column(name = "positionId")
-    private long positionId;
+//    @Column(name = "positionId")
+//    private long positionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
     private EmployeePosition employeePosition;
 
-    public Employee() {
-
-    }
+//    public Employee() {
+//
+//    }
 
     public EmployeePosition getEmployeePosition() {
         return employeePosition;
@@ -51,13 +51,13 @@ public class Employee implements Serializable {
         this.employeePosition = employeePosition;
     }
 
-    public long getPositionId() {
-        return positionId;
-    }
-
-    public void setPositionId(long positionId) {
-        this.positionId = positionId;
-    }
+//    public long getPositionId() {
+//        return positionId;
+//    }
+//
+//    public void setPositionId(long positionId) {
+//        this.positionId = positionId;
+//    }
 
     public long getId() {
         return id;
@@ -83,12 +83,12 @@ public class Employee implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -97,8 +97,7 @@ public class Employee implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", emailId='" + emailId + '\'' +
-                ", positionId=" + positionId +
+                ", emailId='" + email + '\'' +
                 ", employeePosition=" + employeePosition +
                 '}';
     }
