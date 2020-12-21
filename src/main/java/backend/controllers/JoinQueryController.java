@@ -19,7 +19,6 @@ public class JoinQueryController {
 
     @GetMapping("/dept/employees/left")
     public ResponseEntity<List<EmployeeAndPositionDto>> getEmployeAndPositionLeftJoin(){
-        System.out.println("hi");
         return new ResponseEntity<List<EmployeeAndPositionDto>>(joinQueryService.getEmployeAndPositionLeftJoin(),
                 HttpStatus.OK);
     }
