@@ -20,8 +20,7 @@ public class EmployeePositionController {
 
     @GetMapping("/positions")
     public List<EmployeePosition> getAllEmployeePositions() {
-        System.out.println("position1");
-        return (List<EmployeePosition>) employeePositionRepository.findAll();
+                return (List<EmployeePosition>) employeePositionRepository.findAll();
     }
 
     @GetMapping("/positions/{id}")

@@ -8,7 +8,7 @@ import java.util.Set;
 public class EmployeePosition implements java.io.Serializable {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY )
     private long id;
 
     @Column(name = "position")
@@ -51,7 +51,7 @@ public class EmployeePosition implements java.io.Serializable {
         return "EmployeePosition{" +
                 "id=" + id +
                 ", position='" + position + '\'' +
-                ", employeeId=" +
+                ", employees=" + employees +
                 '}';
     }
 }

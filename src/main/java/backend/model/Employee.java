@@ -19,7 +19,8 @@ public class Employee implements Serializable {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY )
+
     private long id;
 
     @Column(name = "firstname", unique = true)
@@ -29,19 +30,19 @@ public class Employee implements Serializable {
     private String lastName;
 
     @Column(name = "email")
-    private String email;
-
-//    @Column(name = "positionId")
-//    private long positionId;
+    private String emailId;
+//
+    @Column(name = "positionId")
+    private long positionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
     private EmployeePosition employeePosition;
 
-//    public Employee() {
-//
-//    }
+    public Employee() {
+
+    }
 
     public EmployeePosition getEmployeePosition() {
         return employeePosition;
@@ -51,13 +52,13 @@ public class Employee implements Serializable {
         this.employeePosition = employeePosition;
     }
 
-//    public long getPositionId() {
-//        return positionId;
-//    }
-//
-//    public void setPositionId(long positionId) {
-//        this.positionId = positionId;
-//    }
+    public long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(long positionId) {
+        this.positionId = positionId;
+    }
 
     public long getId() {
         return id;
@@ -83,12 +84,12 @@ public class Employee implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     @Override
@@ -97,7 +98,8 @@ public class Employee implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", emailId='" + email + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", positionId="  +
                 ", employeePosition=" + employeePosition +
                 '}';
     }

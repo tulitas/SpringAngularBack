@@ -21,7 +21,9 @@ public class EmployeeController {
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
-        return (List<Employee>) employeeRepository.findAll();
+        System.out.println("sss");
+        System.out.println(employeeRepository.findAll());
+        return  employeeRepository.findAll();
     }
 
     @GetMapping("/employees/{id}")
@@ -43,7 +45,7 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourcesNotFoundException("Employee not found for this id :: " + employeeId));
 
-        employee.setEmail(employeeDetails.getEmail());
+        employee.setEmailId(employeeDetails.getEmailId());
         employee.setLastName(employeeDetails.getLastName());
         employee.setFirstName(employeeDetails.getFirstName());
         final Employee updatedEmployee = employeeRepository.save(employee);
