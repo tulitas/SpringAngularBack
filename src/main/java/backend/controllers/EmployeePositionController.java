@@ -36,7 +36,7 @@ public class EmployeePositionController {
         return employeePositionRepository.save(employeePosition);
     }
     @PutMapping("/positions/{id}")
-    public ResponseEntity<EmployeePosition> updateUser(@PathVariable(value = "id") Long positionId,
+    public ResponseEntity<EmployeePosition> updatePosition(@PathVariable(value = "id") Long positionId,
                                                        @RequestBody EmployeePosition positionDetails) throws ResourcesNotFoundException {
         EmployeePosition employeePosition = employeePositionRepository.findById(positionId)
                 .orElseThrow(()-> new ResourcesNotFoundException("User not found for this id :: " + positionId));
