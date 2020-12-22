@@ -2,6 +2,7 @@ package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
 import backend.model.Employee;
+import backend.repository.EmployeeAndPositionRepository;
 import backend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ public class EmployeeController {
     public List<Employee> getAllEmployees() {
         return (List<Employee>) employeeRepository.findAll();
     }
+
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)

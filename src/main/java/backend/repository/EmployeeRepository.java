@@ -12,7 +12,13 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long>, JpaRepository<Employee, Long> {
 
-@Query ("SELECT new backend.dto.EmployeePositionDto(d.position, e.firstname, e.lastname, e.email) from Employee d left join d.employeePosition e", nativeQuery = true);
-List<EmployeeAndPositionDto> fetch
+    @Query(value = "SELECT new backend.dto.EmployeeAndPositionDto(d.position, e.firstName, e.lastName, e.emailId) " +
+            "FROM EmployeePosition d INNER JOIN d.employees e")
+    List<EmployeeAndPositionDto> fetchEmpDeptDataInnerJoin();
+
+    @Query(value = "SELECT new backend.dto.EmployeeAndPositionDto( e.firstName, e.lastName, e.emailId, d.position) " +
+            "FROM EmployeePosition d, Employee e")
+    List<EmployeeAndPositionDto> fetchEmpDeptDataCrossJoin();
+
 
 }
