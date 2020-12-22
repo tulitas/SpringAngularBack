@@ -1,7 +1,9 @@
 package backend.controllers;
 
+import backend.dto.EmployeeAndPositionDto;
 import backend.exception.ResourcesNotFoundException;
 import backend.model.Employee;
+import backend.repository.EmployeePositionRepository;
 import backend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +20,14 @@ import java.util.Map;
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
+    private EmployeePositionRepository employeePositionRepository;
 
     @GetMapping("/employees")
-    public List<Employee> getAllEmployees() {
-        return  employeeRepository.findAll();
+    public List<EmployeeAndPositionDto> getAllEmployees() {
+//        return employeeRepository.findAll();
+        return employeePositionRepository.fetchEmpPosDataRightJoin();
     }
+
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)
@@ -33,13 +38,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public Employee createEmployee( @RequestBody Employee employee) {
+    public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
-                                                    @RequestBody Employee employeeDetails) throws ResourcesNotFoundException {
+                                                   @RequestBody Employee employeeDetails) throws ResourcesNotFoundException {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourcesNotFoundException("Employee not found for this id :: " + employeeId));
 
