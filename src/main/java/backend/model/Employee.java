@@ -1,5 +1,8 @@
 package backend.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,20 +22,32 @@ public class Employee implements java.io.Serializable{
     @Column(name = "email")
     private String emailId;
 
-    @Column(name = "positionId")
-    private long positionId;
+//    @Column(name = "positionId")
+//    private long positionId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "positionId", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private EmployeePosition positionId;
 
     public Employee() {
 
     }
 
-    public long getPositionId() {
+    public EmployeePosition getPositionId() {
         return positionId;
     }
 
-    public void setPositionId(long positionId) {
+    public void setPositionId(EmployeePosition positionId) {
         this.positionId = positionId;
     }
+//    public long getPositionId() {
+//        return positionId;
+//    }
+//
+//    public void setPositionId(long positionId) {
+//        this.positionId = positionId;
+//    }
 
     public long getId() {
         return id;

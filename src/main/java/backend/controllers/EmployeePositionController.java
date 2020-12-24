@@ -41,7 +41,6 @@ public class EmployeePositionController {
         EmployeePosition employeePosition = employeePositionRepository.findById(positionId)
                 .orElseThrow(()-> new ResourcesNotFoundException("User not found for this id :: " + positionId));
 
-        employeePosition.setEmployeeId(positionDetails.getEmployeeId());
         employeePosition.setPosition(positionDetails.getPosition());
         final EmployeePosition updatePosition = employeePositionRepository.save(employeePosition);
         return ResponseEntity.ok(updatePosition);
