@@ -2,6 +2,7 @@ package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
 import backend.model.Employee;
+import backend.repository.EmployeePositionRepository;
 import backend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,6 @@ import java.util.Map;
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
-
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
         return (List<Employee>) employeeRepository.findAll();

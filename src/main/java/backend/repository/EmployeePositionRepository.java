@@ -15,7 +15,7 @@ public interface EmployeePositionRepository extends CrudRepository<EmployeePosit
             "FROM EmployeePosition d LEFT JOIN d.employees e")
     List<EmployeeAndPositionDto> fetchEmpPosDataLeftJoin();
 
-    @Query(value = "SELECT new backend.dto.EmployeeAndPositionDto(d.position, e.firstName, e.lastName, e.email) " +
+    @Query(value = "SELECT new backend.dto.EmployeeAndPositionDto( e.firstName, e.lastName, e.email, d.position) " +
             "FROM EmployeePosition d RIGHT JOIN d.employees e")
     List<EmployeeAndPositionDto> fetchEmpPosDataRightJoin();
 }

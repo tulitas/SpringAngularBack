@@ -16,11 +16,8 @@ public class JoinQueryService {
     private EmployeeRepository employeeRepository;
 
     public List<EmployeeAndPositionDto> getEmployeAndPositionLeftJoin() {
-        System.out.println("hi2");
         List<EmployeeAndPositionDto> list = employeePositionRepository.fetchEmpPosDataLeftJoin();
-        System.out.println("hi3");
         list.forEach(System.out::println);
-        System.out.println("hi4");
         return list;
     }
 

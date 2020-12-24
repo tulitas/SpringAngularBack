@@ -31,8 +31,8 @@ public class Employee implements Serializable {
     @Column(name = "email")
     private String email;
 
-//    @Column(name = "positionId")
-//    private long positionId;
+    @Column(name = "positionId")
+    private long positionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
@@ -51,13 +51,13 @@ public class Employee implements Serializable {
         this.employeePosition = employeePosition;
     }
 
-//    public long getPositionId() {
-//        return positionId;
-//    }
-//
-//    public void setPositionId(long positionId) {
-//        this.positionId = positionId;
-//    }
+    public long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(long positionId) {
+        this.positionId = positionId;
+    }
 
     public long getId() {
         return id;
@@ -97,7 +97,8 @@ public class Employee implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", emailId='" + email + '\'' +
+                ", email='" + email + '\'' +
+                ", positionId=" + positionId +
                 ", employeePosition=" + employeePosition +
                 '}';
     }
