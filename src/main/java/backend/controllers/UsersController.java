@@ -1,6 +1,7 @@
 package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
+
 import backend.model.Roles;
 import backend.model.User;
 import backend.repository.UsersRepository;
