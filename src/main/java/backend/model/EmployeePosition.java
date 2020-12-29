@@ -45,7 +45,6 @@ public class EmployeePosition implements java.io.Serializable {
         this.position = position;
     }
 
-
     @Override
     public String toString() {
         return "EmployeePosition{" +

@@ -28,20 +28,20 @@ public class Employee implements java.io.Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
-    private EmployeePosition positionId;
+    private EmployeePosition employeePosition;
 
-    public Employee() {
+//    public Employee() {
+//    }
 
+    public EmployeePosition getEmployeePosition() {
+        return employeePosition;
     }
 
-    public EmployeePosition getPositionId() {
-        return positionId;
+    public void setEmployeePosition(EmployeePosition employeePosition) {
+        this.employeePosition = employeePosition;
     }
 
-    public void setPositionId(EmployeePosition positionId) {
-        this.positionId = positionId;
-    }
-//    public long getPositionId() {
+    //    public long getPositionId() {
 //        return positionId;
 //    }
 //
@@ -88,7 +88,7 @@ public class Employee implements java.io.Serializable{
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", positionId=" + positionId +
+                ", employeePosition=" + employeePosition +
                 '}';
     }
 }

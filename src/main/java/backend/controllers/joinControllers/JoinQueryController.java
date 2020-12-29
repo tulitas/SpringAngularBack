@@ -1,8 +1,7 @@
-package backend.controllers;
+package backend.controllers.joinControllers;
 
 import backend.dto.EmployeeAndPositionDto;
 import backend.services.JoinQueryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +15,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/dept/employees")
 public class JoinQueryController {
-    @Autowired
     private final JoinQueryService joinQueryService;
 
     public JoinQueryController(JoinQueryService joinQueryService) {
