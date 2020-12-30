@@ -22,8 +22,8 @@ public class Employee implements java.io.Serializable{
     @Column(name = "email")
     private String emailId;
 
-//    @Column(name = "positionId")
-//    private long positionId;
+    @Column(name = "positionId")
+    private long positionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
