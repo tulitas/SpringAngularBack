@@ -22,8 +22,8 @@ public class Employee implements java.io.Serializable{
     @Column(name = "email")
     private String emailId;
 
-//    @Column(name = "positionId")
-//    private long positionId;
+    @Column(name = "positionId")
+    private long positionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "positionId", insertable = false, updatable = false)
@@ -41,13 +41,13 @@ public class Employee implements java.io.Serializable{
         this.employeePosition = employeePosition;
     }
 
-    //    public long getPositionId() {
-//        return positionId;
-//    }
-//
-//    public void setPositionId(long positionId) {
-//        this.positionId = positionId;
-//    }
+        public long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(long positionId) {
+        this.positionId = positionId;
+    }
 
     public long getId() {
         return id;

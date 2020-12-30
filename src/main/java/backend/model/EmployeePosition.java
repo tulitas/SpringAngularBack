@@ -15,7 +15,7 @@ public class EmployeePosition implements java.io.Serializable {
     private String position;
 
     @OneToMany(targetEntity = Employee.class,
-            mappedBy = "id",
+            mappedBy = "positionId",
             orphanRemoval = false,
             fetch = FetchType.LAZY)
     private Set<Employee> employees;
