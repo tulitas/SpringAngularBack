@@ -35,7 +35,6 @@ public class EmployeePosition implements java.io.Serializable{
         return "EmployeePosition{" +
                 "id=" + id +
                 ", position='" + position + '\'' +
-                ", employeeId=" +
                 '}';
     }
 }
