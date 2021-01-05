@@ -2,6 +2,7 @@ package backend.controllers;
 
 import backend.exception.ResourcesNotFoundException;
 import backend.model.Employee;
+import backend.model.EmployeePosition;
 import backend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public Employee createEmployee( @RequestBody Employee employee) {
+    public Employee createEmployee( @RequestBody Employee employee, String test) {
         System.out.println(employeeRepository.save(employee));
         return employeeRepository.save(employee);
     }
