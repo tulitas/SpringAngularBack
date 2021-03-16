@@ -1,6 +1,7 @@
 package backend.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "employeePositions")
@@ -12,6 +13,20 @@ public class EmployeePosition implements java.io.Serializable{
 
     @Column(name = "position")
     private String position;
+
+    @OneToMany(targetEntity = Employee.class,
+            mappedBy = "positionId",
+            orphanRemoval = false,
+            fetch = FetchType.LAZY)
+    private Set<Employee> employees;
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
     public long getId() {
         return id;
@@ -35,6 +50,7 @@ public class EmployeePosition implements java.io.Serializable{
         return "EmployeePosition{" +
                 "id=" + id +
                 ", position='" + position + '\'' +
+                ", employees=" + employees +
                 '}';
     }
 }

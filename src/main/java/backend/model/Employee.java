@@ -1,10 +1,13 @@
 package backend.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee implements java.io.Serializable{
+public class Employee implements java.io.Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +25,10 @@ public class Employee implements java.io.Serializable{
     @Column(name = "positionId")
     private long positionId;
 
-    public Employee() {
-
-    }
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "positionId", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private EmployeePosition employeePosition;
 
 
     public long getPositionId() {
@@ -34,6 +37,14 @@ public class Employee implements java.io.Serializable{
 
     public void setPositionId(long positionId) {
         this.positionId = positionId;
+    }
+
+    public EmployeePosition getEmployeePosition() {
+        return employeePosition;
+    }
+
+    public void setEmployeePosition(EmployeePosition employeePosition) {
+        this.employeePosition = employeePosition;
     }
 
     public long getId() {
@@ -75,7 +86,7 @@ public class Employee implements java.io.Serializable{
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", positionId=" + positionId +
+                ", employeePosition=" + employeePosition +
                 '}';
     }
 }
